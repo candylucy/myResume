@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        body, div, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: none;
+        }
+
+        .box, .boxDec {
+            float: left;
+            margin: 20px;
+            width: 350px;
+            height: 350px;
+            border: 1px solid #cccccc;
+            overflow: hidden;
+        }
+        .boxDec{
+            position: relative;
+            display: none;
+        }
+        .boxDec img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            position: relative;
+        }
+
+        #mark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 175px;
+            height: 175px;
+            background: #FFF38F;
+            opacity: 0.2;
+            filter: alpha(Opacity=20);
+            cursor: move;
+        }
+
+        .mark img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <img src="images/55cd692bN7ffd552a.jpg" />
+</div>
+<div class="boxDec" id="boxDec"><img src="images/555.jpg" alt=""/></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var boxDec = document.getElementById("boxDec");
+    var boxDecImg=boxDec.getElementsByTagName("img")[0];
+    var boxL = box.offsetLeft + box.clientLeft;
+    var boxT = box.offsetTop + box.clientTop;
+
+    var setPosition = function (e, curEle) {
+        e = e || window.event;
+        var top= e.clientY-boxT-(curEle.offsetHeight/2);
+        var left= e.clientX-boxL-(curEle.offsetWidth/2);
+
+        var rightMax=box.clientWidth-curEle.clientWidth,bottomMax=box.clientHeight-curEle.clientHeight;
+
+        if (left <= 0) {
+            curEle.style.left = 0;
+            boxDecImg.style.left = 0;
+        } else if (left >= rightMax) {
+            curEle.style.left = rightMax + "px";
+            boxDecImg.style.left = -(rightMax * 2) + "px";
+        } else {
+            curEle.style.left = left + "px";
+            boxDecImg.style.left = -(left * 2) + "px";
+        }
+
+        if (top <= 0) {
+            curEle.style.top = 0;
+            boxDecImg.style.top = 0;
+        } else if (top >= bottomMax) {
+            curEle.style.top = bottomMax + "px";
+            boxDecImg.style.top = -(bottomMax * 2) + "px";
+        } else {
+            curEle.style.top = top + "px";
+            boxDecImg.style.top = -(top * 2) + "px";
+        }
+
+
+
+    };
+
+
+
+    box.onmouseenter = function (e) {
+        var mark = document.getElementById("mark");
+        if (!mark) {
+            mark = document.createElement("div");
+            mark.id = "mark";
+            this.appendChild(mark);
+        }
+        setPosition(e,mark);
+        boxDec.style.display = "block";
+    };
+    box.onmousemove = function (e) {
+        var mark = document.getElementById("mark");
+        if (mark) {
+            setPosition(e, mark);
+        }
+    };
+    box.onmouseleave = function (e) {
+        var mark = document.getElementById("mark");
+        if (mark) {
+            this.removeChild(mark);
+        }
+        boxDec.style.display = "none";
+    };
+
+</script>
