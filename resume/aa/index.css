@@ -150,7 +150,12 @@ html,body{
     padding-left: 60px;
     padding-top: 80px;
 }
-.a4 .a42 h2{
+.a4 div h2{
+    position: absolute;
+    top: 40px;
+    left: 30%;
+    margin-left: -20px;
+    text-align: center;
     font-size: 60px;
     font-weight: bold;
     color: white;
