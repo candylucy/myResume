@@ -7,7 +7,10 @@ var winW = window.innerWidth;
 var winH = window.innerHeight;
 var desW = 640;
 var desH = 960;
+var index=0;
+var pageList = [].slice.call(document.querySelectorAll(".ro>span"),0);
 main.style.webkitTransform = "scale(" + winH / desH + ")";
+moveRo();
 [].forEach.call(oLis, function () {
     arguments[0].index = arguments[1];
     arguments[0].addEventListener('touchstart', start, false);
@@ -19,7 +22,7 @@ function start(e) {
 }
 function move(e) {
     e.preventDefault();
-    /*×èÖ¹Ä¬ÈÏÐÐÎª*/
+    /*ï¿½ï¿½Ö¹Ä¬ï¿½ï¿½ï¿½ï¿½Îª*/
     var touchMove = e.changedTouches[0].pageY;
     var changePos = touchMove - this.startY;
     var cur = this.index;
@@ -32,11 +35,11 @@ function move(e) {
         arguments[0].className="";
         arguments[0].firstElementChild.id="";
     });
-    if (changePos > 0) {/*¡ý*/
+    if (changePos > 0) {/*ï¿½ï¿½*/
         var pos = -winH+changePos;
         this.preSIndex = cur == 0 ? oLis.length - 1 : cur - 1;
 
-    } else if (changePos < 0) {/*¡ü*/
+    } else if (changePos < 0) {/*ï¿½ï¿½*/
         var pos = winH+changePos;
         this.preSIndex = cur == oLis.length - 1 ? 0 : cur + 1;
 
@@ -56,3 +59,36 @@ function end(e) {
 }
 document.addEventListener('touchstart',function(){
 },false);
+
+
+window.addEventListener("load", function () {
+    var musicAudio = document.querySelector("#musicAudio");
+    var music = document.querySelector(".music");
+
+    musicAudio.addEventListener("canplay", function () {
+        music.style.display = "block";
+        music.className = "music move";
+    }, false);
+    musicAudio.play();
+
+    $t.tap(music, {
+        end: function (e) {
+            if (musicAudio.paused) {
+                musicAudio.play();
+                this.className = "music move";
+                return;
+            }
+            musicAudio.pause();
+            this.className = "music";
+        }
+    });
+}, false);
+
+
+function moveRo() {
+    pageList.forEach(function (item, i) {
+
+            item.className = "ro move";
+
+    });
+}
