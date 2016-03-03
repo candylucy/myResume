@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css" rel="stylesheet">
+        body,div,ul,li{
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+            -webkit-user-select: none;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .tab{
+            margin: 50px auto;
+            width: 500px;
+        }
+        .tab ul{
+            position: relative;
+            top: 1px;
+        }
+        .tab ul li.select{
+            background: #FFF38F;
+            border-bottom-color: #FFF38F;
+        }
+        .tab ul li{
+            margin-right: 25px;
+            float: left;
+            width: 148px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #cccccc;
+            cursor: pointer;
+        }
+        .tab ul li:nth-child(3){
+            margin:0;
+        }
+        .tab div{
+            display: none;
+            clear: both;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #cccccc;
+            background: #FFF38F;
+        }
+        .tab div.select{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="tab" id="tab">
+    <ul>
+        <li class="select">第一页</li>
+        <li>第二页</li>
+        <li>第三页</li>
+    </ul>
+    <div class="select">第一页</div>
+    <div>第二页</div>
+    <div>第三页</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    var oTab=document.getElementById("tab");
+    var oLis=oTab.getElementsByTagName("li");
+    var oDivs=oTab.getElementsByTagName("div");
+
+    var tabChange=function(n){
+        for (var i=0;i<oLis.length;i++){
+            oLis[i].className=null;
+            oDivs[i].className=null;
+        }
+        oDivs[n].className=oLis[n].className="select";
+    };
+    for(var i=0;i<oLis.length;i++){
+      oLis[i].om=i;
+        oLis[i].onmouseover=function(){
+            tabChange(this.om);
+        }
+    }
+
+</script>

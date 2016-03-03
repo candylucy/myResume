@@ -98,6 +98,7 @@ html,body{
     animation: one-boxMove 4s linear 400ms infinite both;
 }
 .ro span:nth-child(8){
+    
 
     -webkit-animation: one-boxMove 4s linear 1600ms infinite both;
     animation: one-boxMove 4s linear 1600ms infinite both;
@@ -152,7 +153,7 @@ html,body{
 
 .a2 div{
     /*box-shadow: 1px 1px 10px rgba(255,255,255,0.8);*/
-    width: 262.4px;
+    width: 242.4px;
     height: 355.2px;;
     position: absolute;
     overflow: hidden;
@@ -163,21 +164,30 @@ html,body{
     background: url("images/yq0KA1TUbEaABTqmAADpqACBIMY165.jpg") no-repeat;
     left: 5%;
     top: 10%;
+    padding: 10px;
+    font-size: 30px;
 }
 .a2 div:nth-child(2){
     background: url("images/yq0KA1TUbEaAGrxrAAECXJVYpK0337.jpg") no-repeat;
     left: 52%;
     top: 10%;
+    padding: 10px;
+    font-size: 30px;
 }
 .a2 div:nth-child(3){
     background: url("images/yq0KA1TUbESAHRLDAAECXNJtZbE038.jpg") no-repeat;
     left: 5%;
     top: 53%;
+    padding: 10px;
+    font-size: 30px;
 }
+
 .a2 div:nth-child(4){
     background: url("images/yq0KA1TUbESAMMVkAAECXF8yt-c796.jpg") no-repeat;
     left: 52%;
     top: 53%;
+    padding: 10px;
+    font-size: 30px;
 }
 .a2 div:nth-child(5){
     background: url("images/yq0KA1TUbEWADgTjAADqToW5nvQ156.jpg") no-repeat;
@@ -189,12 +199,23 @@ html,body{
     margin-left: -130px;
     border-radius: 50%;
 }
+.a2 div:nth-child(6){
+    z-index: 2;
+    left: 35%;
+    top: 47.5%;
+    border: none;
+    font-size: 50px;
+    color:red;
+}
 .a3 div{
     position: absolute;
     left: 100px;
     width: 440px;
     height: 150px;
     background: white;
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
 }
 .a3 div:nth-child(1){
     top: 120px;
@@ -215,13 +236,13 @@ html,body{
     width: 538px;
 }
 .a4 div:nth-child(1){
-    background: dodgerblue;
+    background: #ffd53e;
     height: 346px;
 }
 
 .a4 div:nth-child(2){
     height: 400px;
-    background: grey;
+    background: #cb6dcc;
     padding-left: 60px;
     padding-top: 80px;
 }
@@ -235,9 +256,20 @@ html,body{
     font-weight: bold;
     color: white;
 }
+.a4 div h1{
+    position: absolute;
+    top: 180px;
+    left: 35%;
+    margin-left: -20px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
 .a4 .a42 p{
     margin-top: 10px;
-    font-size: 40px;
+    padding-left: -10px;
+    font-size: 35px;
     color: white;
 }
 

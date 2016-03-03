@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-size: 14px;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            -webkit-user-select: none;
+        }
+        ul ,li{
+            list-style: none;
+        }
+        .tab{
+            margin: 50px auto;
+            width: 500px;
+        }
+        .tab ul{
+            position: relative;
+            top: 1px;
+        }
+        .tab ul li{
+            float: left;
+            margin-right: 25px;
+            width: 148px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid yellow;
+            background: #cccccc;
+        }
+        .tab ul li:nth-child(3){
+            margin-right: 0;
+        }
+        .tab ul li.select{
+            background: greenyellow;
+            border-bottom-color: greenyellow;
+        }
+        .tab div{
+            display: none;
+            clear: both;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            border: 1px solid yellow;
+            background: #cccccc;
+        }
+        .tab div.select{
+            display: block;
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<div  id="tab" class="tab">
+    <ul>
+        <li class="select">第一页</li>
+        <li>第二页</li>
+        <li>第三页</li>
+    </ul>
+    <div class="select">第一页</div>
+    <div>第二页</div>
+    <div>第三页</div>
+</div>
+</body>
+</html>
+<script>
+
+</script>
